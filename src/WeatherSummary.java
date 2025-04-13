@@ -19,13 +19,41 @@ public class WeatherSummary {
      */
     public static void main(String[] args) {
         // Implement this method!
-        // Hint: use Scanner. nextDouble() and hasNextDouble() will be helpful here!
-        Scanner scanner = new Scanner(System.in);
-        
-        while (scanner.hasNextDouble()) {
-            double temp = scanner.nextDouble();
-            System.out.println(temp);
+                // Hint: use Scanner. nextDouble() and hasNextDouble() will be helpful here!
+        //Wave 2
+        //     Scanner scan = new Scanner(System.in) {
+        //     while (scan.hasNextDouble()) {
+        //         double temp = scan.nextDouble();
+        //         System.out.println(temp);
+        //     }
+        // }
+        Scanner scan = new Scanner(System.in);
+
+        // Initialize min and max as null to handle empty input
+        Double min = null;
+        Double max = null;
+
+        while (scan.hasNextDouble()) {
+            double temp = scan.nextDouble();
+
+            if (min == null || temp < min) {
+                min = temp;
+            }
+            if (max == null || temp > max) {
+                max = temp;
+            }
         }
+
+
+
+        if (min != null && max != null) {
+            System.out.println("Max: " + max);
+            System.out.println("Min: " + min);
+        } else {
+            System.out.println("No temperature data provided.");
+        }
+    }
+
     
     }
-}
+
