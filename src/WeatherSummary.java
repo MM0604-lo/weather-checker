@@ -27,33 +27,34 @@ public class WeatherSummary {
         //         System.out.println(temp);
         //     }
         // }
+        // Wave 3 and 4 
         Scanner scan = new Scanner(System.in);
 
-        // Initialize min and max as null to handle empty input
         Double min = null;
         Double max = null;
+        double sum = 0;
+        int count = 0;
 
         while (scan.hasNextDouble()) {
             double temp = scan.nextDouble();
 
-            if (min == null || temp < min) {
-                min = temp;
-            }
-            if (max == null || temp > max) {
-                max = temp;
-            }
+            if (min == null || temp < min) min = temp;
+            if (max == null || temp > max) max = temp;
+
+            sum += temp;
+            count++;
         }
 
+        scan.close();
 
-
-        if (min != null && max != null) {
+        if (count > 0) {
+            double average = sum / count;
             System.out.println("Max: " + max);
             System.out.println("Min: " + min);
+            System.out.println("Average: " + average);
         } else {
             System.out.println("No temperature data provided.");
         }
     }
-
-    
-    }
+}
 
